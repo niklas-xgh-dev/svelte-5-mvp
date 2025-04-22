@@ -1,21 +1,28 @@
 <script>
-    import Counter from './Counter.svelte';
-    
-    let name = $state("world");
-  </script>
-  
-  <main>
-    <h1>Hello {name}!</h1>
-    <p>Welcome to your minimal Svelte application</p>
-    
-    <div class="input-group">
-      <label for="name-input">Change name:</label>
-      <input id="name-input" bind:value={name} />
-    </div>
-    
-    <Counter />
-  </main>
-  
+  import Counter from './Counter.svelte';
+  import Chat from './Chat.svelte';
+
+  let name = $state("world");
+  let apiKey = '';
+</script>
+
+<main>
+  <h1>Hello {name}!</h1>
+  <p>Welcome to your minimal Svelte application</p>
+
+  <section style="margin:2rem 0;">
+    <h2>Chat with GPT</h2>
+    <Chat {apiKey} />
+  </section>
+
+  <div class="input-group">
+    <label for="name-input">Change name:</label>
+    <input id="name-input" bind:value={name} />
+  </div>
+
+  <Counter />
+</main>
+
   <style>
     main {
       max-width: 600px;
